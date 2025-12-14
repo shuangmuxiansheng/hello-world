@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海南皓众人力 - 自贸港全链条人力服务商</title>
+    <meta name="description" content="海南皓众人力专业门户，提供劳务派遣、企业外包、招聘猎头、会议会展及外籍人才服务等一站式人力资源解决方案，助力自贸港企业合规高效增长。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Banner Area */
+        .hero-banner {
+            height: 100vh;
+            /* 注意：实际部署请替换为国内图床地址，例如阿里云OSS地址 */
+            background-image: linear-gradient(rgba(30, 64, 175, 0.8), rgba(30, 64, 175, 0.6)), url('https://via.placeholder.com/1920x1080?text=Hainan+FTP+Scene');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: var(--header-height-desktop);
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        .hero-stats {
+            margin-bottom: 40px;
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Advantage Grid */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: -60px; /* Overlap banner */
+            position: relative;
+            z-index: 10;
+        }
+
+        .adv-card {
+            text-align: center;
+        }
+
+        .adv-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Business Matrix */
+        .business-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .biz-card {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--text-light);
+        }
+
+        .biz-card i {
+            font-size: 36px;
+            color: var(--text-medium);
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .biz-card:hover i {
+            color: var(--primary-color);
+        }
+
+        .matrix-footer {
+            text-align: center;
+            margin-top: 30px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Data & Testimonials */
+        .data-section {
+            background-color: var(--text-light);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .data-num {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: block;
+        }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            background: linear-gradient(to right, var(--primary-color), #3b82f6);
+            color: var(--white);
+            text-align: center;
+            padding: 50px 0;
+        }
+        .bottom-cta h2 { color: var(--white); margin-bottom: 30px; }
+        .bottom-cta .btn { margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            .hero-banner { height: auto; padding: 150px 0 100px; }
+            .hero-content h1 { font-size: 32px; }
+            .hero-content h2 { font-size: 18px; }
+            .hero-btns { flex-direction: column; padding: 0 40px; }
+            .hero-btns .btn { width: 100%; }
+            .advantage-grid, .business-matrix, .data-grid { grid-template-columns: repeat(2, 1fr); }
+            .advantage-grid { margin-top: 40px; }
+            .bottom-cta .btn { margin: 10px 0; width: 100%; max-width: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-users-cog"></i>
+                <span>皓众人力<small style="font-size: 12px; display: block; line-height: 1;">HAO ZHONG REN LI</small></span>
+            </a>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">首页</a></li>
+                    <li><a href="about.html" class="nav-link">关于我们</a></li>
+                    <li><a href="services.html" class="nav-link">核心业务</a></li>
+                    <li><a href="#" class="nav-link">服务案例</a></li>
+                    <li><a href="qualifications.html" class="nav-link">资质荣誉</a></li>
+                    <li><a href="#" class="nav-link">合作伙伴</a></li>
+                    <li><a href="#" class="nav-link">新闻动态</a></li>
+                    <li><a href="contact.html" class="nav-link">联系我们</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-secondary btn-sm">立即咨询</a>
+                <a href="contact.html#demand-form" class="btn btn-outline-primary btn-sm" style="border: 1px solid var(--primary-color);">需求申报</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="container hero-content">
+            <h1>自贸港全链条人力服务商</h1>
+            <h2>劳务派遣 · 企业外包 · 招聘猎头 · 会议会展 · 外籍人才服务 一站式解决方案</h2>
+            <p class="hero-stats">500+企事业单位合作 | 98%客户满意度 | 合规赋能企业高效增长</p>
+            <div class="hero-btns">
+                <a href="services.html" class="btn btn-primary">查看服务方案</a>
+                <a href="#" class="btn btn-outline-white">案例参考</a>
+                <a href="contact.html" class="btn btn-secondary">免费咨询</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="advantage-grid">
+                <div class="card adv-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3 class="module-title">合规保障</h3>
+                    <p>双资质认证+ISO三大体系，流程合法合规</p>
+                </div>
+                <div class="card adv-card">
+                    <i class="fas fa-building"></i>
+                    <h3 class="module-title">服务规模</h3>
+                    <p>500+合作企业，含12家世界500强</p>
+                </div>
+                <div class="card adv-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3 class="module-title">覆盖能力</h3>
+                    <p>海南18市县+全国业务网络，属地化服务</p>
+                </div>
+                <div class="card adv-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3 class="module-title">响应效率</h3>
+                    <p>12小时极速响应，24小时在线支持</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">核心业务矩阵</h2>
+            <div class="business-matrix">
+                <div class="card biz-card" style="background-color: #e5e7eb;">
+                    <i class="fas fa-sitemap"></i>
+                    <h3 class="module-title" style="color: var(--text-dark)">人事管理体系</h3>
+                </div>
+                 <div class="card biz-card" style="background-color: #e5e7eb;">
+                    <i class="fas fa-user-clock"></i>
+                    <h3 class="module-title" style="color: var(--text-dark)">灵活用工平台</h3>
+                </div>
+                 <div class="card biz-card" style="background-color: #e5e7eb;">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3 class="module-title" style="color: var(--text-dark)">跨境人才服务中心</h3>
+                </div>
+                <div class="card biz-card"><i class="fas fa-brain"></i><h4 class="module-title">调研与智库服务</h4></div>
+                <div class="card biz-card"><i class="fas fa-user-friends"></i><h4 class="module-title">劳务用工服务</h4></div>
+                <div class="card biz-card"><i class="fas fa-search-dollar"></i><h4 class="module-title">招聘猎头服务</h4></div>
+                <div class="card biz-card"><i class="fas fa-chalkboard-teacher"></i><h4 class="module-title">培训教育服务</h4></div>
+                <div class="card biz-card"><i class="fas fa-graduation-cap"></i><h4 class="module-title">学历提升服务</h4></div>
+                <div class="card biz-card"><i class="fas fa-file-alt"></i><h4 class="module-title">企事业单位命题考试</h4></div>
+                <div class="card biz-card"><i class="fas fa-handshake"></i><h4 class="module-title">会议会展服务</h4></div>
+                <div class="card biz-card"><i class="fas fa-passport"></i><h4 class="module-title">外籍人才服务</h4></div>
+                <div class="card biz-card"><i class="fas fa-gift"></i><h4 class="module-title">礼行员工关爱定制</h4></div>
+            </div>
+            <p class="matrix-footer">N项定制服务：低空经济人才孵化、高效农业人才引进等自贸港专项产品</p>
+        </div>
+    </section>
+
+    <section class="section data-section">
+        <div class="container">
+            <h2 class="section-title">实力见证与核心数据</h2>
+            <div style="text-align: center; margin-bottom: 40px; font-style: italic;">
+                “皓众的招聘解决方案帮我们3个月完成100人核心团队搭建。” —— 某新能源企业HRD
+            </div>
+            <div class="data-grid">
+                <div class="card">
+                    <span class="data-num">500+</span>
+                    <p>服务企事业单位</p>
+                </div>
+                <div class="card">
+                    <span class="data-num">98%+</span>
+                    <p>客户满意度</p>
+                </div>
+                <div class="card">
+                    <span class="data-num">30%+</span>
+                    <p>年业务增长</p>
+                </div>
+                <div class="card">
+                    <span class="data-num">10000+</span>
+                    <p>储备专业人才</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bottom-cta">
+        <div class="container">
+            <h2>自贸港企业人力需求，找皓众一站解决</h2>
+            <div>
+                <a href="contact.html" class="btn btn-outline-white" style="background: white; color: var(--primary-color);">立即对接</a>
+                <a href="tel:0898-6678-1105" class="btn btn-secondary"><i class="fas fa-phone-alt"></i> 拨打热线</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>皓众人力</h2>
+                    <p>自贸港全链条人力服务商</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="services.html">核心业务</a></li>
+                        <li><a href="qualifications.html">资质荣誉</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系方式</h4>
+                    <p><i class="fas fa-phone"></i> 0898-6678-1105</p>
+                    <p><i class="fas fa-envelope"></i> hhhzrlzy@163.com</p>
+                </div>
+                <div class="footer-compliance">
+                    <h4>合规展示</h4>
+                    <p>人力资源服务许可证编号：[仅作示例]</p>
+                    <div style="width: 100px; height: 60px; background: #374151; margin-top: 10px; text-align:center; line-height:60px; font-size:12px;">营业执照</div>
+                </div>
+                <div style="text-align: center;">
+                     <h4>关注我们</h4>
+                     <div style="width: 100px; height: 100px; background: #374151; margin: 0 auto; line-height:100px;">二维码占位</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>©2025 海南皓众人力资源服务有限公司 版权所有 | <a href="#">隐私政策</a> | <a href="#">服务条款</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
