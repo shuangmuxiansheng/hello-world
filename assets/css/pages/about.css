@@ -1,0 +1,275 @@
+/* File: assets/css/pages/about.css */
+.page-banner {
+    height: 500px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x800?text=Corporate+Vision');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+    padding-top: var(--header-height-desktop);
+}
+
+.page-banner h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+
+.page-banner p {
+    font-size: 24px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.intro-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.intro-text h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.intro-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+}
+
+.intro-text p {
+    margin-bottom: 20px;
+    color: #555;
+    text-align: justify;
+}
+
+.intro-img {
+    position: relative;
+}
+
+.intro-img img {
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* --- 发展历程 (桌面横向，移动纵向) --- */
+.history-section {
+    background-color: #f9fafb;
+    overflow-x: hidden; /* 防止横向滚动条 */
+}
+
+.timeline-wrapper {
+    position: relative;
+    padding: 40px 0;
+}
+
+/* 桌面端：横向时间轴 */
+@media (min-width: 992px) {
+    .timeline {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    /* 横线 */
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #e5e7eb;
+        z-index: 0;
+    }
+
+    .timeline-item {
+        position: relative;
+        flex: 1;
+        text-align: center;
+        padding: 0 10px;
+        z-index: 1;
+    }
+
+    .timeline-dot {
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary-color);
+        border: 4px solid #fff;
+        border-radius: 50%;
+        margin: 10px auto 20px;
+        box-shadow: 0 0 0 2px var(--primary-color);
+    }
+
+    .timeline-year {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .timeline-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        font-size: 14px;
+        text-align: left;
+        position: relative;
+        min-height: 160px; /* 对齐卡片高度 */
+    }
+    
+    /* 小三角 */
+    .timeline-content::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 8px 8px 8px;
+        border-style: solid;
+        border-color: transparent transparent white transparent;
+    }
+}
+
+/* --- 组织架构 (卡片式) --- */
+.org-section {
+    background-color: var(--white);
+}
+
+.org-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.org-tree-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.org-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.org-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-color: var(--primary-color);
+}
+
+.org-card.main-node {
+    background: var(--primary-color);
+    color: white;
+    grid-column: 1 / -1; /* 跨全列 */
+    margin-bottom: 20px;
+}
+
+.org-card.main-node h3, .org-card.main-node p { color: white; }
+
+.org-icon {
+    font-size: 32px;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+
+.culture-section {
+    background-color: #1F2937; /* 深色背景强调文化沉淀 */
+    color: white;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+}
+
+.culture-item i {
+    font-size: 48px;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.culture-item h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.culture-item p {
+    color: #9CA3AF;
+}
+
+/* --- 响应式适配 --- */
+@media (max-width: 768px) {
+    .page-banner { height: 300px; }
+    .page-banner h1 { font-size: 28px; }
+    .page-banner p { font-size: 16px; }
+    
+    .intro-grid { grid-template-columns: 1fr; gap: 30px; }
+    .org-tree-grid { grid-template-columns: 1fr; }
+    .culture-grid { grid-template-columns: 1fr; }
+
+    /* 移动端纵向时间轴样式重写 */
+    .timeline {
+        display: block;
+        padding-left: 30px;
+        border-left: 2px solid #e5e7eb;
+    }
+    
+    .timeline::before { display: none; } /* 隐藏横线 */
+
+    .timeline-item {
+        margin-bottom: 30px;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: -11px; /* 调整圆点位置到线上 */
+        margin: 0;
+    }
+
+    .timeline-year {
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+
+    .timeline-content {
+        min-height: auto;
+    }
+    
+    .timeline-content::before {
+        top: 10px;
+        left: -8px; /* 三角形指向左侧 */
+        border-width: 8px 8px 8px 0;
+        border-color: transparent white transparent transparent;
+        transform: none;
+    }
+}

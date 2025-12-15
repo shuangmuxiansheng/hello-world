@@ -1,0 +1,101 @@
+/* File: assets/css/pages/services.css */
+.services-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--text-light);
+    padding-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--text-medium);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.service-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-sub-module h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.service-sub-module h4 i { 
+    margin-right: 10px; 
+}
+
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.step-item { 
+    flex: 1; 
+    position: relative; 
+}
+
+.step-item::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 24px;
+}
+
+.step-item:last-child::after { 
+    content: none; 
+}
+
+@media (max-width: 768px) {
+    .service-detail-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .process-steps { 
+        flex-direction: column; 
+        gap: 15px; 
+    }
+    
+    .step-item::after { 
+        content: '↓'; 
+        right: 50%; 
+        top: auto; 
+        bottom: -20px; 
+        transform: translateX(50%); 
+    }
+}

@@ -1,0 +1,243 @@
+/* File: assets/css/pages/cases.css */
+/* assets/css/cases-style.css - 最终稳定版本：Transform 镜像翻转 */
+
+/* --- 变量定义 --- */
+:root {
+    --case-primary: #1e40af;
+    --case-accent: #f59e0b;
+    --case-text-main: #1f2937;
+    --case-text-sub: #6b7280;
+    --case-bg: #f3f4f6;
+    --card-radius: 12px;
+    --trans-speed: 0.4s;
+    --case-desktop-height: 450px; /* 桌面端固定高度 */
+}
+
+/* --- 页面布局容器 --- */
+.cases-section {
+    background-color: var(--case-bg);
+    padding: 60px 0;
+}
+
+/* --- 卡片组件核心样式 (默认/移动端: 纵向堆叠) --- */
+.case-card {
+    background: #ffffff;
+    border-radius: var(--card-radius);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    overflow: hidden; 
+    transition: transform var(--trans-speed) ease, box-shadow var(--trans-speed) ease;
+    
+    /* 默认/移动端布局：纵向堆叠 */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px; 
+}
+
+.case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* --- 图片轮播区域 (移动端/纵向) --- */
+.card-gallery {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    background-color: #e5e7eb;
+    border-radius: var(--card-radius) var(--card-radius) 0 0; 
+}
+
+.gallery-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 6s ease;
+    z-index: 1;
+}
+
+.gallery-img.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.case-card:hover .gallery-img.active {
+    transform: scale(1.1);
+}
+
+/* --- 轮播控制按钮 (保持不变) --- */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    z-index: 10;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    pointer-events: none; 
+}
+
+.case-card:hover .gallery-nav {
+    opacity: 1; 
+}
+
+.nav-btn {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--case-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+}
+
+.nav-btn:hover {
+    background: #fff;
+    color: var(--case-accent);
+}
+
+/* --- 文本内容区域 (默认/纵向) --- */
+.card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 var(--card-radius) var(--card-radius); 
+    background-color: white;
+}
+
+/* ... (其他文字样式保持不变) ... */
+
+
+/* ---------------------------------------------------------------------- */
+/* --- 桌面端适配 (≥ 1200px)：统一左图右文 + 偶数镜像翻转 --- */
+/* ---------------------------------------------------------------------- */
+
+@media (min-width: 1200px) {
+    
+    .cases-grid {
+        display: block; 
+    }
+
+    .case-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: var(--case-desktop-height); 
+        margin-bottom: 60px;
+        /* 确保 transform 不影响 hover 动画 */
+        transition: transform var(--trans-speed) ease, box-shadow var(--trans-speed) ease; 
+        
+        /* 默认奇数：左图(1/2) + 右文(2/3) */
+        transform-origin: center; /* 确保缩放中心正确 */
+    }
+    
+    /* 核心高度和布局：所有卡片都视为左图右文 */
+    .card-gallery, .card-content {
+        height: 100%; 
+        width: 100%;
+        box-sizing: border-box; 
+        aspect-ratio: unset;
+        /* 强制圆角只在边角，交界处为 0 */
+        border-radius: 0 !important; 
+    }
+    
+    .card-gallery {
+        grid-column: 1 / 2; /* 图片始终在左侧 */
+        border-radius: var(--card-radius) 0 0 var(--card-radius) !important;
+    }
+    
+    .card-content {
+        grid-column: 2 / 3; /* 文字始终在右侧 */
+        padding: 50px;
+        border-radius: 0 var(--card-radius) var(--card-radius) 0 !important;
+    }
+    
+    /* ---------------------------------- */
+    /* --- 偶数案例：镜像翻转实现交替 --- */
+    /* ---------------------------------- */
+    
+    .case-card:nth-child(even) {
+        /* 将整个卡片水平翻转，图片移动到右侧，文字移动到左侧 */
+        transform: scaleX(-1);
+    }
+    
+    .case-card:nth-child(even) .card-gallery,
+    .case-card:nth-child(even) .card-content {
+        /* 将内部内容翻转回来，使图片和文字正向显示 */
+        transform: scaleX(-1);
+    }
+
+    /* 修复 hover 动画在偶数卡片上的方向 */
+    .case-card:nth-child(even):hover {
+        /* 当偶数卡片 hover 时，整体往左移，视觉上是向上移 */
+        transform: scaleX(-1) translateY(-8px); 
+    }
+    
+    /* 额外的修正：如果图片容器内有元素（如轮播按钮）在 transform 后定位不准确，可能需要重置 */
+    .case-card:nth-child(even) .gallery-nav {
+         transform: scaleX(-1) translateY(-50%); /* 抵消两次 transform 并保持垂直居中 */
+    }
+}
+
+
+/* ------------------------------------------------ */
+/* --- 平板端适配 (≤ 1199px)：回归纵向堆叠 --- */
+/* ------------------------------------------------ */
+
+@media (max-width: 1199px) {
+    .cases-grid {
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .case-card {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        /* 移除桌面端的 transform 影响 */
+        transform: none !important;
+    }
+     .card-gallery {
+        aspect-ratio: 16 / 9; 
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
+        /* 移除内部元素的 transform 影响 */
+        transform: none !important;
+    }
+    
+    .card-content {
+        border-radius: 0 0 var(--card-radius) var(--card-radius); 
+        /* 移除内部元素的 transform 影响 */
+        transform: none !important;
+    }
+    
+    .gallery-nav {
+         transform: translateY(-50%) !important; /* 确保导航按钮恢复正常 */
+    }
+}
+
+@media (max-width: 768px) {
+    .cases-grid {
+        grid-template-columns: 1fr; /* 手机 1列 */
+    }
+}

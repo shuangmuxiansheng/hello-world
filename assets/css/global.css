@@ -1,0 +1,484 @@
+/* File: assets/css/global.css */
+
+:root {
+    /* 色彩搭配 */
+    --primary-color: #1E40AF; /* 深蓝色 */
+    --secondary-color: #F97316; /* 橙色 */
+    --text-dark: #333333; /* 深灰 */
+    --text-medium: #6B7280; /* 中灰 */
+    --text-light: #F3F4F6; /* 浅灰背景 */
+    --white: #FFFFFF;
+    
+    /* 字体 */
+    --font-family-base: "Microsoft YaHei", "思源黑体", "Inter", Arial, sans-serif;
+
+    /* 其他变量 */
+    --header-height-desktop: 80px;
+    --header-height-scrolled: 60px;
+    --header-height-mobile: 60px;
+    --header-breakpoint: 1100px;
+    --header-breakpoint: 992px;
+    --section-spacing: 60px;
+    --border-radius: 8px;
+}
+
+/* --- 全局重置与基础设置 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-medium);
+    line-height: 1.6;
+    background-color: var(--white);
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 字体层级 */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.section-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.module-title {
+    /* 确保默认颜色为深灰 */
+    font-size: 20px;
+    color: var(--text-dark); 
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+/* 通用容器 */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: var(--section-spacing) 0;
+}
+
+/* --- 按钮样式 --- */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn:active {
+    transform: scale(1.05) translateY(1px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; 
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-outline-white {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* --- 顶部导航栏 --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: var(--header-height-desktop);
+}
+
+.header.scrolled {
+    height: var(--header-height-scrolled);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* 确保所有内容垂直居中 */
+    height: 100%;
+    gap: 20px; /* 添加元素间的最小间距 */
+}
+
+/* --- Logo 样式 (适应图片和文字组合) --- */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* 防止logo文字换行 */
+    flex-shrink: 0; /* 防止logo在空间不足时收缩 */
+}
+
+.logo img {
+    /* 限制图片高度，使其与文字保持一致的垂直对齐 */
+    height: 40px; 
+    margin-right: 10px;
+    transition: height 0.3s ease;
+}
+
+.header.scrolled .logo img {
+    height: 30px; /* 滚动时图片收缩 */
+}
+
+.logo span {
+    color: var(--primary-color); /* 修正：确保文字使用主题蓝色 */
+    white-space: nowrap; /* 防止logo内文字换行 */
+}
+
+/* 确保logo内的小字也在同一行显示 */
+.logo small {
+    display: inline; /* 覆盖HTML中的display: block样式 */
+    line-height: 1; /* 保持行高紧凑 */
+    vertical-align: middle; /* 垂直居中对齐 */
+}
+
+/* --- 导航菜单 (保持默认间隔) --- */
+.nav-menu {
+    display: flex;
+    gap: 20px; 
+    flex-shrink: 0; /* 防止菜单在空间不足时收缩 */
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-dark);
+    padding: 5px 10px; 
+    white-space: nowrap; /* 防止文字换行 */
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    white-space: nowrap; /* 防止按钮文字换行 */
+    flex-shrink: 0; /* 防止按钮组在空间不足时收缩 */
+}
+
+.mobile-toggle {
+    display: none;
+    font-size: 24px;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+/* --- 底部 Footer --- */
+.footer {
+    background-color: #1F2937; /* 深灰色背景 */
+    color: #D1D5DB;
+    padding: 60px 0 20px;
+}
+
+/* 调整布局比例，给予 contact 和 compliance 更多空间 */
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1.5fr 1fr; 
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-logo h2 {
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.footer-links h4, .footer-contact h4, .footer-compliance h4, .wechat-title {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* 确保邮箱地址显示在一行 */
+.footer-contact .email-address {
+    word-break: break-all;
+    white-space: nowrap;
+}
+
+/* 二维码图片样式 */
+.qrcode-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto;
+    border: 1px solid #374151;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    font-size: 14px;
+}
+
+/* --- 通用卡片样式 --- */
+.card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- 回到顶部按钮 --- */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- 弹窗 (Modal) 样式 --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: slideUp 0.3s;
+    position: relative;
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+
+.close-modal {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    opacity: 0.8;
+}
+
+.modal-body {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.contact-item {
+    margin-bottom: 20px;
+}
+
+.contact-item .label {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.contact-item .value {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+}
+
+.contact-item .phone-number {
+    font-size: 28px;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact-item .note {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+.modal-actions {
+    margin-top: 25px;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideUp {
+    from {transform: translateY(20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+/* --- 响应式设计 --- */
+@media (max-width: 1100px) {
+    :root {
+        --section-spacing: 40px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .module-title {
+        font-size: 18px;
+    }
+
+    /* Mobile Header */
+    .header {
+        height: var(--header-height-mobile);
+    }
+    
+    .header .container {
+        padding: 0 15px;
+        flex-wrap: nowrap; /* 防止容器内元素换行 */
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height-mobile);
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-height-mobile));
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .header-actions {
+        display: none;
+    }
+
+    /* Mobile Footer Resets */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .qrcode-img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
