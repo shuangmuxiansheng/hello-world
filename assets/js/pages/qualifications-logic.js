@@ -1,110 +1,51 @@
-// qualifications.js
-
 document.addEventListener('DOMContentLoaded', () => {
-
-    const imageBaseUrl = 'assets/images/qualifications/';
-    const galleryGrid = document.getElementById('galleryGrid');
-
-    // 定义所有证书的类别和数量
-    const certificatesData = [
-        { category: 'certification', name: '体系认证', count: 3 },
-        { category: 'copyright', name: '软件著作', count: 11 },
-        { category: 'honor', name: '企业荣誉', count: 17 },
-        { category: 'patent', category: 'patent', count: 4 },
+    const certGrid = document.getElementById('certGrid');
+    
+    // 从 OCR 文档中提取的完整证书列表
+    const allCertificates = [
+        { name: "人力资源服务许可证", type: "准入" },
+        { name: "劳务派遣经营许可证", type: "准入" },
+        { name: "增值电信业务经营许可证", type: "准入" },
+        { name: "ISO 9001 质量管理体系认证", type: "体系" },
+        { name: "ISO 14001 环境管理体系认证", type: "体系" },
+        { name: "ISO 45001 职业健康安全管理体系认证", type: "体系" },
+        { name: "ISO 27001 信息安全管理体系认证", type: "体系" },
+        { name: "ISO 20000 信息技术服务管理体系认证", type: "体系" },
+        { name: "企业信用评价 AAA 级信用企业", type: "荣誉" },
+        { name: "企业资信等级 AAA 级单位", type: "荣誉" },
+        { name: "质量服务诚信 AAA 级单位", type: "荣誉" },
+        { name: "重合同守信用 AAA 级企业", type: "荣誉" },
+        { name: "诚信经营示范 AAA 级单位", type: "荣誉" },
+        { name: "中国诚信供应商", type: "荣誉" },
+        { name: "海南省人力资源服务行业协会会员单位", type: "荣誉" },
+        { name: "海口市人力资源服务协会理事单位", type: "荣誉" },
+        { name: "人力资源诚信服务领军人物", type: "荣誉" }
     ];
-    
-    // --- 动态生成证书卡片 ---
-    
-    certificatesData.forEach(data => {
-        for (let i = 1; i <= data.count; i++) {
-            // 构造文件名: category (i).PNG
-            const fileName = `${data.category} (${i}).PNG`;
-            const imagePath = imageBaseUrl + fileName;
-            const certificateName = `${data.name} No.${i}`; // 显示名称
 
-            const card = document.createElement('div');
-            card.classList.add('cert-card');
-            card.setAttribute('data-category', data.category);
-
-            card.innerHTML = `
-                <div class="cert-image">
-                    <img src="${imagePath}" alt="${certificateName}">
-                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
-                </div>
-                <div class="cert-info">
-                    <h3>${certificateName}</h3>
-                </div>
-            `;
-            galleryGrid.appendChild(card);
+    allCertificates.forEach(cert => {
+        const card = document.createElement('div');
+        card.className = 'cert-static-card';
+        
+        // 重点修改：精准判断“准入”类型并赋予图标
+        // 使用 fa-shield-alt (兼容性最高) 或 fa-gavel (法律准入感强)
+        let iconClass = "fa-award"; // 默认图标
+        if (cert.type === "准入") {
+            iconClass = "fa-shield-alt"; 
+        } else if (cert.type === "体系") {
+            iconClass = "fa-check-double";
+        } else if (cert.type === "技术") {
+            iconClass = "fa-code";
         }
-    });
 
-
-    // --- 1. 筛选功能逻辑 ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const certCards = document.querySelectorAll('.cert-card');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filterValue = btn.getAttribute('data-filter');
-
-            certCards.forEach(card => {
-                card.classList.remove('show');
-                
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    // 使用 setTimeout + display: block/none 来触发简单的动画
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.classList.add('show');
-                    }, 10);
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-
-    // --- 2. 模态框 (Lightbox) 逻辑 ---
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const captionText = document.getElementById('caption');
-    const closeBtn = document.querySelector('.close-btn');
-
-    // 给所有证书图片区域添加点击事件 (使用事件委托以确保动态生成的元素也能触发)
-    galleryGrid.addEventListener('click', (e) => {
-        const cardImageWrapper = e.target.closest('.cert-image');
-        if (cardImageWrapper) {
-            const img = cardImageWrapper.querySelector('img');
-            const title = cardImageWrapper.nextElementSibling.querySelector('h3').innerText;
-            
-            lightbox.style.display = "block";
-            lightboxImg.src = img.src;
-            captionText.innerText = title;
-            document.body.style.overflow = "hidden"; // 禁止背景滚动
-        }
-    });
-
-    // 关闭模态框函数
-    const closeLightbox = () => {
-        lightbox.style.display = "none";
-        document.body.style.overflow = "auto"; // 恢复滚动
-    };
-
-    closeBtn.addEventListener('click', closeLightbox);
-
-    // 点击背景和按 ESC 键关闭
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape" && lightbox.style.display === "block") {
-            closeLightbox();
-        }
+        card.innerHTML = `
+            <div class="cert-icon">
+                <i class="fas ${iconClass}"></i>
+            </div>
+            <div class="cert-info">
+                <span class="cert-type-tag">${cert.type}</span>
+                <h3 class="cert-name">${cert.name}</h3>
+            </div>
+        `;
+        certGrid.appendChild(card);
     });
 });
