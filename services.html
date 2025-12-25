@@ -9,16 +9,13 @@
     <link rel="stylesheet" href="assets/css/pages/services.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="assets/images/logo/logo.png" alt="皓众人力 Logo">
                 <span>皓众人力<small style="font-size: 10px; display: block; line-height: 1;">HAO ZHONG REN LI</small></span>
             </a>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">首页</a></li>
@@ -39,68 +36,168 @@
     </header>
 
     <main style="padding-top: var(--header-height-desktop);">
-        <section class="section" style="background: var(--primary-color); color: white; padding: 60px 0;">
-            <div class="container">
-                <h1 class="section-title" style="color: white; text-align: left; margin-bottom: 10px;">核心业务体系</h1>
-                <p>“3+9+N”服务体系，覆盖人力资源全生命周期</p>
+        <section class="section hero-section" style="position: relative; padding: 100px 0; text-align: center;">
+            <div class="background-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('assets/images/backgroundimgs/services_bg.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="background-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4);"></div>
+            <div class="container" style="position: relative; z-index: 1; color: white;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: white;">"3+9+N"核心服务体系</h1>
+                <p style="font-size: 1.1rem; max-width: 900px; margin: 0 auto; line-height: 1.8;">
+                    皓众人力构建了覆盖人事管理、灵活用工、跨境人才三大基础平台，深耕咨询、劳务、招聘、考试等九大核心产品，
+                    并根据自贸港产业需求定制 N 项专项服务，为企业提供全生命周期的人力资源解决方案。
+                </p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section business-block" id="consulting">
             <div class="container">
-                <div class="services-tabs">
-                    <div class="tab-btn active" data-target="laowu">劳务用工服务</div>
-                    <div class="tab-btn" data-target="zhaopin">招聘猎头服务</div>
-                    <div class="tab-btn" data-target="zixun">管理咨询服务</div>
+                <div class="module-header">
+                    <span class="module-number">01</span>
+                    <h2 class="module-title">管理咨询服务 <small>Management Consulting</small></h2>
+                </div>
+                <p class="module-desc">人才战略决定业务成败。皓众咨询专家基于深刻的行业洞察，提供专业、全面的人力资源管理咨询。</p>
+                
+                <div class="service-detail-grid">
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-chart-line"></i> 核心体系建设</h4>
+                        <ul>
+                            <li><strong>人力资源规划：</strong> 诊断人才结构性短缺，增强价值创造能力。</li>
+                            <li><strong>组织与岗位：</strong> 组织诊断、定岗定编、任职资格体系建设。</li>
+                            <li><strong>薪酬与激励：</strong> 薪酬总额管控、高管激励、员工持股计划。</li>
+                            <li><strong>绩效管理：</strong> 体系优化、OKR 目标管理、战略分解落地。</li>
+                        </ul>
                     </div>
-
-                <div id="laowu" class="tab-content active">
-                    <h2 class="module-title" style="font-size: 24px; border-left: 4px solid var(--secondary-color); padding-left: 15px;">劳务用工服务</h2>
-                    <div class="service-detail-grid">
-                        <div class="card service-sub-module">
-                            <h4><i class="fas fa-list-ul"></i> 服务内容</h4>
-                            <ul style="list-style: disc; padding-left: 20px;">
-                                <li>劳务派遣（免责型/风险型）</li>
-                                <li>岗位外包（IT/财务/法务）</li>
-                                <li>产线外包、仓储外包、营销外包</li>
-                            </ul>
-                        </div>
-                        <div class="card service-sub-module">
-                            <h4><i class="fas fa-thumbs-up"></i> 核心优势</h4>
-                            <p>严格筛选、专业培训、合规保障、降本增效。</p>
-                        </div>
-                        <div class="card service-sub-module" style="grid-column: 1 / -1;">
-                             <h4><i class="fas fa-random"></i> 服务流程</h4>
-                             <div class="process-steps">
-                                 <div class="step-item">需求对接</div>
-                                 <div class="step-item">员工筛选</div>
-                                 <div class="step-item">培训上岗</div>
-                                 <div class="step-item">日常管理</div>
-                                 <div class="step-item">离职结算</div>
-                             </div>
-                        </div>
-                         <div class="card service-sub-module">
-                            <h4><i class="fas fa-industry"></i> 适用场景</h4>
-                            <p>生产制造、酒店餐饮、行政后勤、项目攻坚等。</p>
-                        </div>
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-sync"></i> 变革与数字化</h4>
+                        <ul>
+                            <li><strong>三支柱建设：</strong> COE 专家中心 / BP 业务伙伴 / SSC 共享中心。</li>
+                            <li><strong>数字化转型：</strong> HR 驾驶舱数据驱动、数字化人才队伍培养。</li>
+                            <li><strong>国企改革：</strong> 三项制度改革、任期制与契约化、职业经理人制度。</li>
+                            <li><strong>事业单位改制：</strong> 人资变革保障方案、改制平稳推进。</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div id="zhaopin" class="tab-content">
-                    <h2 class="module-title" style="font-size: 24px; border-left: 4px solid var(--secondary-color); padding-left: 15px;">招聘猎头服务</h2>
-                    <p>（此处内容结构参考劳务用工，填充对应文档信息）</p>
+                
+                <div class="process-box">
+                    <h5>咨询服务流程</h5>
+                    <div class="process-steps">
+                        <div class="step-item"><span>1</span><p>启动<br><small>达成未来共识</small></p></div>
+                        <div class="step-item"><span>2</span><p>诊断<br><small>系统性对标发现</small></p></div>
+                        <div class="step-item"><span>3</span><p>规划<br><small>创造性方案设计</small></p></div>
+                        <div class="step-item"><span>4</span><p>落地<br><small>陪伴式实施服务</small></p></div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                 <div id="zixun" class="tab-content">
-                    <h2 class="module-title" style="font-size: 24px; border-left: 4px solid var(--secondary-color); padding-left: 15px;">管理咨询服务</h2>
-                    <p>（此处内容结构参考劳务用工，填充对应文档信息）</p>
+        <section class="section business-block bg-light" id="labor">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-number">02</span>
+                    <h2 class="module-title">劳务服务 <small>Labour Services</small></h2>
                 </div>
+                <div class="service-detail-grid">
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-users-cog"></i> 派遣与外包</h4>
+                        <p><strong>派遣服务：</strong> 提供免责型与风险型派遣，涵盖筛选、培训、关系管理全流程。</p>
+                        <p><strong>外包矩阵：</strong> 
+                            <span class="badge">仓储外包</span> <span class="badge">产线外包</span> 
+                            <span class="badge">营销外包</span> <span class="badge">岗位外包(IT/财务/法务)</span>
+                        </p>
+                    </div>
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-user-clock"></i> 灵活用工</h4>
+                        <p>涵盖项目制合作、短期兼职、自由职业者等形式，有效增强配置弹性，响应业务波动需求。</p>
+                        <ul class="highlights">
+                            <li><i class="fas fa-check-circle"></i> 严格筛选(多轮面谈+背调)</li>
+                            <li><i class="fas fa-check-circle"></i> 专业培训(岗前技能提升)</li>
+                            <li><i class="fas fa-check-circle"></i> 风险保障(全流程法务合规)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="section business-block" id="recruitment">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-number">03</span>
+                    <h2 class="module-title">招聘猎头与人才测评 <small>Recruitment & Assessment</small></h2>
+                </div>
+                <div class="service-detail-grid">
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-search"></i> 全流程招聘</h4>
+                        <p>通过多渠道招聘网络，提供职位分析、广告发布、面试评估、背景调查、薪资谈判及入职跟进服务。</p>
+                    </div>
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-file-signature"></i> 科学人才测评</h4>
+                        <ul class="tag-list">
+                            <li>知识测试</li><li>技能评估</li><li>人格测试</li><li>职业适应性</li><li>领导力评估</li><li>心里健康评估</li>
+                        </ul>
+                        <p>结合心理学、教育学知识，提供定制化测评方案，确保人才选拔的客观性。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section business-block bg-light" id="exams">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-number">04</span>
+                    <h2 class="module-title">考试考务与命题服务 <small>Exam & Meeting Services</small></h2>
+                </div>
+                <div class="service-detail-grid">
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-edit"></i> 考试全链条服务</h4>
+                        <p>针对企事业单位招聘，提供命题打磨、考务护航、智能化阅卷及面试评分。拥有高素质题库基地与安全信息化系统。</p>
+                    </div>
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-calendar-alt"></i> 会议与学术活动</h4>
+                        <p><strong>会议策划：</strong> 主题设定、议程安排、嘉宾邀请、参会管理。</p>
+                        <p><strong>会务支持：</strong> 场地租赁、设备调试、礼仪茶歇、成果展示。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section business-block" id="foreign">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-number">05</span>
+                    <h2 class="module-title">外籍人才服务 <small>Foreign Talent Services</small></h2>
+                </div>
+                <div class="service-detail-grid">
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-passport"></i> 证件与职场服务</h4>
+                        <p>工作许可与居留许可办理(新办/延期/变更)、驾照转换、社会保险代理、外籍人才招聘推荐及用工法律咨询。</p>
+                    </div>
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-home"></i> 国际管家服务</h4>
+                        <p>安居服务(房源预选/租约管理)、子女入学协助、文化语言培训、国际搬家及车务管理，助力外籍人才融入在华生活。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section business-block bg-light" id="training">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-number">06</span>
+                    <h2 class="module-title">培训与员工关怀 <small>Training & Care</small></h2>
+                </div>
+                <div class="service-detail-grid">
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-chalkboard-teacher"></i> 培训服务</h4>
+                        <p>涵盖政府培训、企业内训、师资培训及产业技能培训。针对各行业数字化转型、人才盘点提供专项研修班方案。</p>
+                    </div>
+                    <div class="card service-sub-module">
+                        <h4><i class="fas fa-gift"></i> 礼行 - 礼品定制</h4>
+                        <p>秉承“心有礼，行有爱”理念，提供节日伴手礼、企业周年礼、商务定制礼的一站式设计、打样、生产与售后服务。</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -120,6 +217,7 @@
                 <div class="footer-contact">
                     <h4>联系方式</h4>
                     <p><i class="fas fa-phone"></i> 0898-6678-1105</p>
+                    <p><span style="visibility: hidden;"><i class="fas fa-phone"></i></span> 0898-6585-3306</p>
                     <p class="email-address"><i class="fas fa-envelope"></i> hhhzrlzy@163.com</p>
                 </div>
                 <div class="footer-compliance">
@@ -133,12 +231,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>©2025 海南皓众人力资源服务有限公司 版权所有 | <a href="#">隐私政策</a> | <a href="#">服务条款</a></p>
+                <p>©2025 海南皓众人力资源服务有限公司 版权所有 | <a href="#">隐私政策</a> | <a href="#">服务条款</a> | <a href="disclaimer.html">版权声明</a></p>
             </div>
         </div>
     </footer>
-    
-    <script src="assets/js/global.js"></script>
-    <script src="assets/js/pages/services-logic.js"></script>
 </body>
 </html>

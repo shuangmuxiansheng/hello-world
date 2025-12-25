@@ -39,10 +39,21 @@
         </div>
     </header>
 
-    <main style="min-height: 40vh; padding: 40px 0; text-align: center;">
-        <div class="container">
-            <h2>新闻动态页面内容待填充</h2>
-        </div>
+    <main style="padding-top: var(--header-height-desktop);">
+        <section class="news-section">
+            <div class="news-container">
+                <div class="news-header">
+                    <h1>📰 新闻动态</h1>
+                    <p>了解行业动态，掌握最新资讯</p>
+                </div>
+                <div id="news-render-target" class="news-grid">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>数据加载中...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -64,6 +75,7 @@
                 <div class="footer-contact">
                     <h4>联系方式</h4>
                     <p><i class="fas fa-phone"></i> 0898-6678-1105</p>
+                    <p><span style="visibility: hidden;"><i class="fas fa-phone"></i></span> 0898-6585-3306</p>
                     <p class="email-address"><i class="fas fa-envelope"></i> hhhzrlzy@163.com</p>
                 </div>
                 <div class="footer-compliance">
@@ -77,11 +89,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>©2025 海南皓众人力资源服务有限公司 版权所有 | <a href="#">隐私政策</a> | <a href="#">服务条款</a></p>
+                <p>©2025 海南皓众人力资源服务有限公司 版权所有 | <a href="#">隐私政策</a> | <a href="#">服务条款</a> | <a href="disclaimer.html">版权声明</a></p>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/global.js"></script>
+    <script src="assets/js/data/news-data.js"></script>
+    <script src="assets/js/pages/news-logic.js"></script>
 </body>
 </html>
