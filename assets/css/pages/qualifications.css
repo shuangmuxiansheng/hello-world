@@ -1,256 +1,89 @@
-:root {
-    --qualifications-primary-color: #007bff; /* 企业蓝 */
-    --text-dark: #333;
-    --text-gray: #666;
-    --bg-light: #f8f9fa;
-    --card-bg: #ffffff;
-    --transition: 0.3s ease;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: var(--font-family-base);
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-    line-height: 1.6;
-    padding-top: 120px;
-}
-
-.container {
+.qualifications-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 60px 20px;
 }
 
-/* --- 头部设计 --- */
-.page-header {
+.qualifications-header {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.page-header h1 {
-    font-size: 36px;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-    font-weight: 700;
+.qualifications-header h1 {
+    font-size: 2.3rem; /* 设置标题字体大小 */
+    margin-bottom: 15px;
+    color: #1f2937;
 }
 
-.subtitle {
-    font-size: 16px;
-    color: var(--text-gray);
+.qualifications-header h1::before {
+    content: "\f559"; /* Font Awesome 中 'award' 图标的 Unicode 编码 */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 12px; /* 图标与文字的间距 */
+    color: #c9a063;    /* 设置为您喜欢的金色 */
 }
 
-.divider {
-    width: 60px;
-    height: 4px;
-    background-color: var(--qualifications-primary-color);
-    margin: 20px auto 0;
-    border-radius: 2px;
-}
-
-/* --- 筛选导航栏 --- */
-.filter-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 50px;
-}
-
-.filter-btn {
-    border: none;
-    background: transparent;
-    padding: 10px 25px;
-    font-size: 15px;
-    cursor: pointer;
-    color: var(--text-gray);
-    border-radius: 30px;
-    transition: var(--transition);
-    font-weight: 500;
-    border: 1px solid transparent;
-}
-
-.filter-btn:hover {
-    color: var(--qualifications-primary-color);
-    background-color: rgba(0, 123, 255, 0.05);
-}
-
-.filter-btn.active {
-    background-color: var(--qualifications-primary-color);
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
-}
-
-/* --- 网格布局 --- */
-.gallery-grid {
+/* 静态网格布局 */
+.cert-static-grid {
     display: grid;
-    /* 自适应列宽：手机1列，平板2列，桌面3-4列 */
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
 }
 
-/* --- 证书卡片 --- */
-.cert-card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: var(--transition);
-    /* 动画需要 */
-    opacity: 1;
-    transform: scale(1);
-}
-
-.cert-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.cert-card.hide {
-    display: none; /* 筛选隐藏 */
-}
-
-/* 动画类 */
-.cert-card.show {
-    animation: fadeIn 0.5s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* 卡片图片区域 */
-.cert-image {
-    position: relative;
-    width: 100%;
-    height: 340px; /* 固定高度，确保证书整齐 */
-    background-color: #f0f0f0;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.cert-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 保持比例，显示全部内容，可能有留白 */
-    /* 如果希望填满可以用 object-fit: cover; 但可能会裁切证书边缘 */
-    padding: 10px; /* 给证书一点内边距 */
+/* 证书卡片样式 - 专业克制风 */
+.cert-static-card {
     background: #fff;
-    transition: var(--transition);
-}
-
-/* 悬停遮罩层 */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #eee;
+    padding: 24px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    border-left: 4px solid #c9a063; /* 金色侧边装饰 */
 }
 
-.overlay i {
-    color: #fff;
+.cert-static-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+    border-color: #c9a063;
+}
+
+.cert-icon {
     font-size: 24px;
+    color: #c9a063;
+    margin-right: 20px;
+    width: 40px;
+    text-align: center;
 }
 
-.cert-card:hover .overlay {
-    opacity: 1;
+/* 仅针对准入类的文字标签前加小图标 */
+.cert-static-card:has(.cert-type-tag:contains("准入")) .cert-type-tag::before {
+    content: "\f3ed"; /* fa-shield-alt 的 Unicode */
 }
 
-/* 卡片文字信息 */
 .cert-info {
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #eee;
+    flex: 1;
 }
 
-.cert-info h3 {
+.cert-type-tag {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.cert-name {
     font-size: 16px;
-    font-weight: 600;
-    color: var(--text-dark);
+    color: #333;
     margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
-/* --- 模态框 (点击放大) --- */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.lightbox-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 85vh;
-    border-radius: 4px;
-    animation: zoomIn 0.3s;
-}
-
-@keyframes zoomIn {
-    from {transform:scale(0.8); opacity: 0} 
-    to {transform:scale(1); opacity: 1}
-}
-
-.caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    text-align: center;
-    color: #ccc;
-    padding: 15px 0;
-    font-size: 18px;
-}
-
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.close-btn:hover {
-    color: #bbb;
-}
-
-/* 移动端适配 */
-@media (max-width: 768px) {
-    .filter-nav {
-        gap: 10px;
-    }
-    .filter-btn {
-        padding: 8px 16px;
-        font-size: 13px;
-    }
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 15px;
-    }
-    .cert-image {
-        height: 220px;
+/* 移动端调整 */
+@media (max-width: 600px) {
+    .cert-static-grid {
+        grid-template-columns: 1fr;
     }
 }

@@ -19,6 +19,29 @@
     padding: 60px 0;
 }
 
+/* --- 标签样式 --- */
+.case-tag {
+    display: inline-block;
+    background-color: var(--case-primary);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px; /* 圆角效果 */
+    margin-bottom: 12px;
+    text-align: center;
+    vertical-align: middle;
+    align-self: flex-start; /* 保持在flex-start位置 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.case-tag:hover {
+    background-color: #1a3698; /* 稍微深一点的颜色 */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
 /* --- 卡片组件核心样式 (默认/移动端: 纵向堆叠) --- */
 .case-card {
     background: #ffffff;
@@ -126,8 +149,29 @@
     background-color: white;
 }
 
-/* ... (其他文字样式保持不变) ... */
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--case-text-main);
+    margin-bottom: 12px;
+}
 
+.card-description {
+    font-size: 16px;
+    color: var(--case-text-sub);
+    margin-bottom: 12px;
+}
+
+.card-link {
+    font-size: 14px;
+    color: var(--case-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-link:hover {
+    color: #d97706;
+}
 
 /* ---------------------------------------------------------------------- */
 /* --- 桌面端适配 (≥ 1200px)：统一左图右文 + 偶数镜像翻转 --- */

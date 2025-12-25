@@ -146,3 +146,24 @@ body {
         height: 80px;
     }
 }
+/* 为滚动容器添加左右渐变遮罩 */
+.partners-scroll-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 60px;
+    /* 使用遮罩层实现两侧淡出 */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+/* 适当增加动画时间，因为现在每行有 31 个 Logo，跑太快会眼花 */
+.partners-grid .row-1 .logo-list,
+.partners-grid .row-3 .logo-list {
+    animation-duration: 60s; /* 变慢一点 */
+}
+
+.partners-grid .row-2 .logo-list,
+.partners-grid .row-4 .logo-list {
+    animation-duration: 80s; /* 变慢一点 */
+}

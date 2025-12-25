@@ -1,101 +1,123 @@
-/* File: assets/css/pages/services.css */
-.services-tabs {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
-    border-bottom: 2px solid var(--text-light);
-    padding-bottom: 20px;
-}
+/* 基础间距与背景 */
+.bg-light { background-color: #f8f9fa; }
+.business-block { padding: 80px 0; border-bottom: 1px solid #eee; }
 
-.tab-btn {
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--text-medium);
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-.tab-btn.active, .tab-btn:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-.tab-content {
-    display: none;
-    animation: fadeIn 0.5s ease;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.service-detail-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.service-sub-module h4 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
+/* 模块标题样式 */
+.module-header {
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
+}
+.module-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(0, 47, 135, 0.204);
+    margin-right: 20px;
+    line-height: 1;
+}
+.module-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+.module-title small {
+    display: block;
+    font-size: 0.9rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.module-desc {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
 }
 
-.service-sub-module h4 i { 
-    margin-right: 10px; 
+/* 服务卡片增强 */
+.service-sub-module {
+    padding: 30px;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.service-sub-module:hover {
+    transform: translateY(-5px);
+}
+.service-sub-module h4 {
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.service-sub-module ul {
+    list-style: none;
+    padding: 0;
+}
+.service-sub-module ul li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+.service-sub-module ul li::before {
+    content: '•';
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
 }
 
+/* 标签列表 */
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+.tag-list li {
+    background: #eef2ff;
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    padding-left: 12px !important;
+}
+.tag-list li::before { display: none !important; }
+
+/* 流程图展示 */
+.process-box {
+    margin-top: 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
 .process-steps {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content: space-around;
+    position: relative;
+}
+.process-steps::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #eee;
+    z-index: 1;
+}
+.step-item {
+    position: relative;
+    z-index: 2;
     text-align: center;
 }
-
-.step-item { 
-    flex: 1; 
-    position: relative; 
-}
-
-.step-item::after {
-    content: '→';
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-light);
-    font-size: 24px;
-}
-
-.step-item:last-child::after { 
-    content: none; 
-}
-
-@media (max-width: 768px) {
-    .service-detail-grid { 
-        grid-template-columns: 1fr; 
-    }
-    
-    .process-steps { 
-        flex-direction: column; 
-        gap: 15px; 
-    }
-    
-    .step-item::after { 
-        content: '↓'; 
-        right: 50%; 
-        top: auto; 
-        bottom: -20px; 
-        transform: translateX(50%); 
-    }
+.step-item span {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    font-weight: bold;
 }

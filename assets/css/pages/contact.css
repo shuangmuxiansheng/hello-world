@@ -1,97 +1,178 @@
-/* File: assets/css/pages/contact.css */
-.contact-grid {
+/* ==========================================================================
+   File: assets/css/pages/contact.css
+   ========================================================================== */
+
+:root {
+    --primary-blue: #0052cc;
+    --soft-gray: #f4f7fa;
+    --text-main: #2d3436;
+    --text-muted: #636e72;
+}
+
+/* 页面整体布局 */
+.contact-page {
+    padding-top: 80px; /* 避开固定导航栏 */
+    background-color: #fff;
+}
+
+/* 头部设计：取消生硬蓝块，改为现代渐变 */
+.contact-hero {
+    padding: 80px 0 60px;
+    background: linear-gradient(135deg, #0052cc 0%, #003d99 100%);
+    color: white;
+    text-align: center;
+}
+
+.contact-hero .badge {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-hero h1 {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.contact-hero p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 核心容器 */
+.contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 400px 1fr; /* 黄金比例分割 */
+    gap: 50px;
+    margin-top: -40px; /* 让内容略微向上浮动在 Hero 区上 */
 }
 
-.contact-info-cards {
-    display: grid;
-    gap: 20px;
+/* 左侧侧边栏 */
+.contact-sidebar {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    height: fit-content;
 }
 
-.contact-card {
-    display: flex;
-    align-items: flex-start;
+.info-group {
+    margin-bottom: 35px;
 }
 
-.contact-card i {
-    font-size: 24px;
-    color: var(--primary-color);
-    margin-right: 20px;
-    margin-top: 5px;
-}
-
-/* 表单样式 */
-.contact-form .form-group {
+.info-group h3 {
+    font-size: 1.2rem;
+    color: var(--text-main);
     margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
 }
 
-.contact-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--text-dark);
+.info-group h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background: var(--primary-blue);
+    border-radius: 2px;
 }
 
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--text-light);
-    border-radius: 4px;
-    background-color: #f9fafb;
-    transition: all 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    background-color: var(--white);
-}
-
-/* FAQ 样式 */
-.faq-item {
-    margin-bottom: 15px;
-    border: 1px solid var(--text-light);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-}
-
-.faq-question {
-    padding: 15px 20px;
-    background-color: #f9fafb;
-    cursor: pointer;
+/* 电话样式优化 */
+.phone-box {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.phone-item {
+    display: flex;
     align-items: center;
-    font-weight: bold;
-    color: var(--text-dark);
+    gap: 15px;
+    padding: 15px;
+    background: var(--soft-gray);
+    border-radius: 10px;
+    transition: transform 0.3s;
 }
 
-.faq-answer {
-    padding: 0 20px;
-    max-height: 0;
+.phone-item:hover {
+    transform: translateX(5px);
+}
+
+.phone-item i {
+    font-size: 20px;
+    color: var(--primary-blue);
+}
+
+.phone-item small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.phone-item strong {
+    font-size: 1.15rem;
+    color: var(--primary-blue);
+}
+
+.address-list {
+    list-style: none;
+    padding: 0;
+}
+
+.address-list li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* 右侧问卷区 */
+.contact-form-area {
+    min-width: 0; /* 修复 Grid 溢出 Bug */
+}
+
+.form-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     overflow: hidden;
-    transition: all 0.3s ease;
-    background-color: var(--white);
+    border: 1px solid #eee;
 }
 
-.faq-item.active .faq-answer {
-    padding: 20px;
-    max-height: 200px; /* 根据内容调整 */
+
+
+/* iframe 的容器处理 */
+.iframe-box {
+    position: relative;
+    width: 100%;
+    min-height: 700px; /* 给问卷足够的垂直空间 */
 }
 
-.faq-item.active .faq-question i {
-    transform: rotate(180deg);
+.iframe-box iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }
 
-@media (max-width: 768px) {
-    .contact-grid { 
-        grid-template-columns: 1fr; 
-        gap: 40px; 
+/* 移动端适配 */
+@media (max-width: 1024px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    
+    .contact-sidebar {
+        margin-top: 0;
     }
 }
