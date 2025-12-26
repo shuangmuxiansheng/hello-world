@@ -38,63 +38,90 @@
         </div>
     </header>
 
-    <main style="padding-top: var(--header-height-desktop);">
-        <section class="section hero-section" style="position: relative; padding: 100px 0; text-align: center;">
-            <div class="background-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('assets/images/backgroundimgs/contact_bg.jpg'); background-size: cover; background-position: center;"></div>
-            <div class="background-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 48, 135, 0.6);"></div>
-            <div class="container" style="position: relative; z-index: 1; color: white;">
-                <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: white;">与专业的服务团队取得联系</h1>
-                <p style="font-size: 1.1rem; max-width: 900px; margin: 0 auto; line-height: 1.8; color: white;">
-                    无论您是企业寻求合作，还是人才咨询政策，我们都将在12小时内为您提供精准答复。
-                </p>
+    
+
+    <main class="contact-page-main">
+        <section class="contact-hero-section">
+            <div class="hero-bg-img" style="background-image: url('assets/images/backgroundimgs/contact_bg.jpg');"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>建立连接 · 共创未来</h1>
+                <p>扎根自贸港，业务辐射全国。我们专业的咨询团队随时为您待命。</p>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container contact-wrapper">
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <section class="contact-content-section">
+            <div class="container contact-grid-container">
                 
-                <aside class="contact-sidebar">
-                    <div class="info-group">
-                        <h3>咨询热线</h3>
-                        <div class="phone-box">
-                            <div class="phone-item">
-                                <i class="fas fa-headset"></i>
+                <aside class="contact-sidebar-fixed">
+                    <div class="address-card hq-card">
+                        <span class="status-tag">总部</span>
+                        <h3>海口总部</h3>
+                        <div class="contact-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-phone-alt"></i>
                                 <div>
-                                    <small>业务咨询热线</small>
-                                    <strong>0898-6678-1105</strong><br>
+                                    <small>咨询热线</small>
+                                    <strong>0898-6678-1105</strong>
                                     <strong>0898-6585-3306</strong>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <small>电子邮箱</small>
+                                    <strong>hhhzrlzy@163.com</strong>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <small>办公地址</small>
+                                    <p>海南省海口市龙华区金宇街道坡博四横路154号11层</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="info-group">
-                        <h3>办公地址</h3>
-                        <ul class="address-list">
-                            <li><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #e53e3e;"></i><strong>海口总部：</strong>海南省海口市龙华区金宇街道坡博四横路154号11层</li>
-                            <li><i class="fas fa-building" style="margin-right: 8px; color: #1a56db;"></i><strong>三亚分公司：</strong>三亚市吉阳区吉阳大道218号天豪万琉汇5层505室</li>
-                            <li><i class="fas fa-building" style="margin-right: 8px; color: #1a56db;"></i><strong>澄迈分公司：</strong>澄迈县老城镇融创美伦熙语一期9栋1001</li>
-                            <li><i class="fas fa-building" style="margin-right: 8px; color: #1a56db;"></i><strong>东方分公司：</strong>海南省东方市八所镇大占坡社区大道东路31号2号铺面</li>
+                    <div class="address-card branch-card">
+                        <h4>其他分支机构</h4>
+                        <ul class="branch-list">
+                            <li><strong>三亚分公司：</strong>吉阳区吉阳大道218号天豪万琉汇5层505室</li>
+                            <li><strong>澄迈分公司：</strong>老城镇融创美伦熙语一期9栋1001</li>
+                            <li><strong>东方分公司：</strong>八所镇大占坡社区大道东路31号2号铺面</li>
                         </ul>
-                    </div>
-
-                    <div class="info-group">
-                        <h3>电子邮箱</h3>
-                        <p class="email-text"><i class="far fa-envelope"></i> hhhzrlzy@163.com</p>
                     </div>
                 </aside>
 
-                <div class="contact-form-area" id="demand-form">
-                    <div class="form-card">
-                        <div class="iframe-box">
-                            <iframe 
-                                id="idy_frame" 
-                                title="需求申报表单"
-                                src="https://wj.qq.com/s2/25315456/f17a/" 
-                                frameborder="0" 
-                                allowfullscreen 
-                                sandbox="allow-same-origin allow-scripts allow-modals allow-downloads allow-forms allow-popups">
-                            </iframe>
+                <div class="contact-main-display">
+                    <div class="wechat-banner">
+                        <div class="banner-text">
+                            <h3>关注“皓众人力”公众号</h3>
+                            <p>第一时间掌握自贸港人才政策、行业白皮书及最新招聘动态。</p>
+                            <div class="banner-tags">
+                                <span><i class="fas fa-check-circle"></i> 在线咨询</span>
+                                <span><i class="fas fa-check-circle"></i> 政策解读</span>
+                                <span><i class="fas fa-check-circle"></i> 需求申报</span>
+                            </div>
+                        </div>
+                        <div class="banner-qr">
+                            <img src="assets/images/QRcode/gongzhonghao.png" alt="微信公众号">
+                            <span>扫码即刻关注</span>
+                        </div>
+                    </div>
+
+                    <div class="map-card-box">
+                        <div class="map-header">
+                            <h3>业务辐射版图</h3>
+                            <p>皓众人力已在全国多个省份建立业务支撑网络</p>
+                        </div>
+                        <div class="map-visual">
+                            <img src="assets/images/about/sydt.png" alt="皓众人力业务分布图" onerror="this.src='assets/images/backgroundimgs/image_957a02.png'">
                         </div>
                     </div>
                 </div>
@@ -102,7 +129,6 @@
             </div>
         </section>
     </main>
-
         <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -141,5 +167,16 @@
             </div>
         </div>
     </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            // 当页面向下滚动超过 50px 时，添加 scrolled 类，否则移除
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
