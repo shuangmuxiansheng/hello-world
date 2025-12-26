@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 从 OCR 文档中提取的完整证书列表
     const allCertificates = [
         { name: "人力资源服务许可证", type: "准入" },
-        { name: "劳务派遣经营许可证", type: "准入" },
+        { name: "劳务派遣经营资质", type: "准入" },
         { name: "增值电信业务经营许可证", type: "准入" },
         { name: "ISO 9001 质量管理体系认证", type: "体系" },
         { name: "ISO 14001 环境管理体系认证", type: "体系" },
@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "中国诚信供应商", type: "荣誉" },
         { name: "海南省人力资源服务行业协会会员单位", type: "荣誉" },
         { name: "海口市人力资源服务协会理事单位", type: "荣誉" },
-        { name: "人力资源诚信服务领军人物", type: "荣誉" }
+        { name: "人力资源诚信服务领军人物", type: "荣誉" },
+        { name: "A级人力资源服务机构", type: "荣誉" }
     ];
 
     allCertificates.forEach(cert => {
